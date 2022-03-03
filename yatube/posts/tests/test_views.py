@@ -43,7 +43,7 @@ class PostPagesTests(TestCase):
                                               kwargs={'post_id':
                                                       self.post.pk}
                                               ),
-            'posts/includes/post_create.html': reverse('post:post_create'),
+            reverse('post:post_create'): 'posts/includes/post_create.html',
             'posts/includes/post_create.html': reverse('post:edit',
                                                        kwargs={'post_id':
                                                                self.post.pk})
@@ -158,4 +158,3 @@ class PaginatorViewsTest(TestCase):
         response = self.client.get(reverse('post:group_posts',
                                            kwargs={'slug': self.group.slug}))
         self.assertEqual(len(response.context['page_obj']), 3)
-
