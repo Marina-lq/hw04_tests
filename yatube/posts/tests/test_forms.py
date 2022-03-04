@@ -30,6 +30,7 @@ class PostFormsTests(TestCase):
     def setUp(self):
         self.authorized_client = Client()
         self.authorized_client.force_login(self.user)
+        self.guest_client = Client()
 
     def test_create_post(self):
         """Проверка формы создания нового поста."""
@@ -84,6 +85,27 @@ class PostFormsTests(TestCase):
             ).exists()
         )
         self.assertFalse(
+            Post.objects.filter(
+                group=self.group_old.id,
+                text='Тестовый текст',
+            ).exists()
+        )
+
+    def test_guest_create_post(self):
+        """Проверка формы создания нового поста."""
+        posts_count = Post.objects.count()
+        form_data = {
+            'text': 'Тестовый текст',
+            'group': self.group_old.id,
+        }
+        response = self.guest_client.post(
+            ('post:post_create'),
+            data=form_data,
+            follow=True
+        )
+        self.assertEqual(response.status_code, 404)
+        self.assertEqual(Post.objects.count(), posts_count)
+        self.assertTrue(
             Post.objects.filter(
                 group=self.group_old.id,
                 text='Тестовый текст',
