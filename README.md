@@ -1,3 +1,42 @@
-# hw04_tests
+Проект. Тесты
+В этом проекте я писала большой диапазон тестов, чтобы познакомиться с принципами Unittest в Django, были проведены следующие тесты:
 
-[![CI](https://github.com/yandex-praktikum/hw04_tests/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/yandex-praktikum/hw04_tests/actions/workflows/python-app.yml)
+Unittest в Django: тестирование моделей
+
+Протестированы модели приложения posts в Yatube
+Unittest в Django: тестирование URLs
+
+Проверка доступности страниц и названия шаблонов приложения Posts проекта Yatube. Проверка учитывает права доступа
+Unittest в Django: тестирование Views
+
+Тесты которые проверяют, что во view-функциях используются правильные html-шаблоны
+Unittest в Django: тестирование Views
+
+Проверка словаря context, передаваемого в шаблон при вызове
+Unittest в Django: тестирование Forms
+
+при отправке валидной формы со страницы создания поста
+при отправке валидной формы со страницы редактирования поста
+Инструкция по установке
+Клонируем репозиторий
+
+Переходим в папку с проектом
+
+hw04_tests/
+
+Устанавливаем отдельное виртуальное окружение для проекта
+
+python -m venv venv
+
+Активируем виртуальное окружение
+
+venv\Scripts\activate
+
+Устанавливаем модули необходимые для работы проекта
+
+pip install -r requirements.txt
+
+Требования
+Python 3.6 +
+
+Работает под ОС Linux, Windows, macOS, BSD
